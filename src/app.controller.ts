@@ -1,12 +1,18 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Controller, Get, Post, Body, Render } from '@nestjs/common';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
-
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @Render('index')
+  getForm() {
+    return {};
+  }
+
+  @Post('calculate')
+  @Render('result')
+  calculateIMC(@Body() body) {
+    const { weight, height } = body;
+    const imc = weight / (height * height);
+    return { imc: imc.toFixed(2) };
   }
 }
