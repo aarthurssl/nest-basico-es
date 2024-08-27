@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Imc: Calculadora</title>
-    </head>
-    <body>
-        <div>
-            {{{body}}}
-        </div>
-    </body>
+<head>
+  <title>Calculadora de IMC</title>
+</head>
+<body>
+  <h1>Calculadora de IMC</h1>
+  <form action="/calculate" method="post">
+    <label for="weight">Peso (kg):</label>
+    <input type="number" id="weight" name="weight" required>
+    <br>
+    <label for="height">Altura (m):</label>
+    <input type="number" id="height" name="height" step="0.01" required>
+    <br>
+    <button type="submit">Calcular IMC</button>
+  </form>
+</body>
 </html>
